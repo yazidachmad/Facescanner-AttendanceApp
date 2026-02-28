@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "253722320651",
+    "project_id": "face-scan-62a20",
+    "storage_bucket": "face-scan-62a20.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253722320651:android:83454e5535e5301c5e8c0e",
+        "android_client_info": {
+          "package_name": "com.example.raimu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiHMROMZKrIf23l0aB-rsZPYeWeugN4IM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
