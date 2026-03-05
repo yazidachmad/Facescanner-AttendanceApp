@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.raimu"
+    namespace = "com.example.facescan"
     compileSdk = 36
     ndkVersion = "27.0.12077973"
 
@@ -19,7 +19,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.raimu"
+        applicationId = "com.example.facescan"
         minSdk = flutter.minSdkVersion
         targetSdk = 36
         versionCode = flutter.versionCode

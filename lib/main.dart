@@ -24,7 +24,7 @@ class AttendanceApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Face Attendance App',
+      title: 'Face Attendance App', 
       theme: ThemeData(
         fontFamily: 'Jakarta',
         colorScheme: ColorScheme.fromSeed(

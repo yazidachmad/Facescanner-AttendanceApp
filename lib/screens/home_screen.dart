@@ -364,7 +364,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   Widget _buildTodayStats() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -373,14 +373,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF1E293B))),
-          const SizedBox(height: 12),
+          const SizedBox(height: 20),
           GridView.count(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             crossAxisCount: 2,
-            crossAxisSpacing: 12,
-            mainAxisSpacing: 12,
-            childAspectRatio: 1.45,
+            crossAxisSpacing: 15,
+            mainAxisSpacing: 15,
+            childAspectRatio: 1.2,
             children: [
               _buildStatCard(
                 icon: Icons.login_rounded,
@@ -421,61 +421,64 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildStatCard({
-    required IconData icon,
-    required Color iconBg,
-    required String title,
-    required String time,
-    required String status,
-    required Color statusColor,
-  }) {
-    return Container(
-      padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
+Widget _buildStatCard({
+  required IconData icon,
+  required Color iconBg,
+  required String title,
+  required String time,
+  required String status,
+  required Color statusColor,
+}) {
+  return Container(
+    padding: const EdgeInsets.all(12),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(16),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withOpacity(0.05),
+          blurRadius: 10,
+          offset: const Offset(0, 4),
+        ),
+      ],
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min, // <-- tambah ini
+      children: [
+        Container(
+          padding: const EdgeInsets.all(7),
+          decoration: BoxDecoration(
+            color: iconBg,
+            borderRadius: BorderRadius.circular(10),
           ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: iconBg,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Icon(icon, color: Colors.white, size: 20),
+          child: Icon(icon, color: Colors.white, size: 18), // <-- kecilkan icon
+        ),
+        const SizedBox(height: 8), // <-- ganti Spacer() dengan SizedBox
+        Text(title,
+            style: const TextStyle(
+                fontSize: 11, color: Colors.black45, fontWeight: FontWeight.w500)),
+        const SizedBox(height: 2),
+        Text(time,
+            style: const TextStyle(
+                fontSize: 17, // <-- kecilkan dari 20
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF1E293B))),
+        const SizedBox(height: 4),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
+          decoration: BoxDecoration(
+            color: statusColor.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(6),
           ),
-          const Spacer(),
-          Text(title,
-              style:
-                  const TextStyle(fontSize: 11, color: Colors.black45, fontWeight: FontWeight.w500)),
-          const SizedBox(height: 2),
-          Text(time,
-              style: const TextStyle(
-                  fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xFF1E293B))),
-          const SizedBox(height: 4),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-            decoration: BoxDecoration(
-              color: statusColor.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(6),
-            ),
-            child: Text(status,
-                style: TextStyle(
-                    fontSize: 10, color: statusColor, fontWeight: FontWeight.w600)),
-          ),
-        ],
-      ),
-    );
-  }
+          child: Text(status,
+              style: TextStyle(
+                  fontSize: 10, color: statusColor, fontWeight: FontWeight.w600)),
+        ),
+      ],
+    ),
+  );
+}
 
   Widget _buildSystemStatus() {
     return Padding(
